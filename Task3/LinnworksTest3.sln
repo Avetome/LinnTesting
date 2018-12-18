@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinnworksTest3", "LinnworksTest3\LinnworksTest3.csproj", "{A2BAF306-287E-48CA-8D7C-CE83C86C54DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinnworksTest3Tests", "LinnworksTest3Tests\LinnworksTest3Tests.csproj", "{8425243C-3E00-4F13-B374-4F7D2B957F6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2BAF306-287E-48CA-8D7C-CE83C86C54DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BAF306-287E-48CA-8D7C-CE83C86C54DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BAF306-287E-48CA-8D7C-CE83C86C54DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BAF306-287E-48CA-8D7C-CE83C86C54DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8425243C-3E00-4F13-B374-4F7D2B957F6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8425243C-3E00-4F13-B374-4F7D2B957F6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8425243C-3E00-4F13-B374-4F7D2B957F6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8425243C-3E00-4F13-B374-4F7D2B957F6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92EA09CD-A281-4651-8F37-341E153E09F7}
+	EndGlobalSection
+EndGlobal
