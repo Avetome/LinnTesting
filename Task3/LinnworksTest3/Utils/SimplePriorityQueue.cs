@@ -44,6 +44,8 @@ namespace LinnworksTest3
         {
             return !_items.Any();
         }
+
+        public List<PriorityQueueItem> Items => _items;
     }
 
     public class PriorityQueueItem

@@ -12,6 +12,7 @@ namespace LinnworksTest3
         private const ConsoleColor FinishColor = ConsoleColor.Green;
         private const ConsoleColor PathColor = ConsoleColor.Yellow;
         private const ConsoleColor NotVisitedColor = ConsoleColor.DarkGray;
+        private const ConsoleColor FrontierColor = ConsoleColor.Magenta;
 
         /// <summary>
         /// Draw world map.
@@ -64,7 +65,7 @@ namespace LinnworksTest3
             Console.Write(Environment.NewLine);
         }
 
-        public static void DrawDebugCostMap(ushort[,] map, Location start, Location finish)
+        public static void DrawDebugCostMap(ushort[,] map, Location start, Location finish, List<Location> frontier = null)
         {
             var color = NormalColor;
 
@@ -83,6 +84,10 @@ namespace LinnworksTest3
                     else if (map[x, y] == 0)
                     {
                         color = NotVisitedColor;
+                    }
+                    else if (frontier != null && frontier.Any(c => c.X == x && c.Y == y))
+                    {
+                        color = FrontierColor;
                     }
 
                     PrintNumberWithColor(map[x, y], color);

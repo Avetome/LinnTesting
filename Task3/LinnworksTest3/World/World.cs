@@ -60,6 +60,7 @@ namespace LinnworksTest3
         public Location[] FindShortestWay(Location start, Location finish)
         {
             var pathFinder = new DijkstraPathFinder();
+            // var pathFinder = new AStarPathFinder();
 
             return pathFinder.Find(Map, start, finish);
         }

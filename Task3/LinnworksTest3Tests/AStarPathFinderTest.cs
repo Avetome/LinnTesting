@@ -6,10 +6,13 @@ using Xunit;
 
 namespace LinnworksTest3Tests
 {
-    [Collection("Dijkstra PathFinder Tests")]
-    public class DijkstraPathFinderTest
+    /// <summary>
+    /// TODO: Move test examples for all algoritms to one place
+    /// </summary>
+    [Collection("A* PathFinder Tests")]
+    public class AStarPathFinderTest
     {
-        [Fact(DisplayName = "Dijkstra search in 3x3 map")]
+        [Fact(DisplayName = "A* search in 3x3 map")]
         public void TestOn3x3Map()
         {
             byte[,] map = new byte[3, 3] {
@@ -21,7 +24,7 @@ namespace LinnworksTest3Tests
             var start = new Location(0, 0);
             var finish = new Location(2, 2);
 
-            var pathFinder = new DijkstraPathFinder();
+            var pathFinder = new AStarPathFinder();
 
             var path = pathFinder.Find(map, start, finish).ToList();
 
@@ -36,7 +39,7 @@ namespace LinnworksTest3Tests
             Assert.Equal(result, path);
         }
 
-        [Fact(DisplayName = "Dijkstra search in 5x5 map")]
+        [Fact(DisplayName = "A* search in 5x5 map")]
         public void TestOn5x5Map()
         {
             byte[,] map = new byte[5, 5] {
@@ -50,7 +53,7 @@ namespace LinnworksTest3Tests
             var start = new Location(0, 0);
             var finish = new Location(4, 4);
 
-            var pathFinder = new DijkstraPathFinder();
+            var pathFinder = new AStarPathFinder();
 
             var path = pathFinder.Find(map, start, finish).ToList();
 
@@ -69,7 +72,7 @@ namespace LinnworksTest3Tests
             Assert.Equal(result, path);
         }
 
-        [Fact(DisplayName = "Dijkstra search in 5x5 map with almost wall")]
+        [Fact(DisplayName = "A* search in 5x5 map with almost wall")]
         public void TestOn5x5MapWithAlmostWall()
         {
             byte[,] map = new byte[5, 5] {
@@ -83,7 +86,7 @@ namespace LinnworksTest3Tests
             var start = new Location(0, 0);
             var finish = new Location(4, 4);
 
-            var pathFinder = new DijkstraPathFinder();
+            var pathFinder = new AStarPathFinder();
 
             var path = pathFinder.Find(map, start, finish).ToList();
 
@@ -102,7 +105,7 @@ namespace LinnworksTest3Tests
             Assert.Equal(result, path);
         }
 
-        [Fact(DisplayName = "Dijkstra search in 5x5 map with wall")]
+        [Fact(DisplayName = "A* search in 5x5 map with wall")]
         public void TestOn5x5MapWithWall()
         {
             byte[,] map = new byte[5, 5] {
@@ -116,7 +119,7 @@ namespace LinnworksTest3Tests
             var start = new Location(0, 0);
             var finish = new Location(4, 4);
 
-            var pathFinder = new DijkstraPathFinder();
+            var pathFinder = new AStarPathFinder();
 
             var path = pathFinder.Find(map, start, finish)?.ToList();
 

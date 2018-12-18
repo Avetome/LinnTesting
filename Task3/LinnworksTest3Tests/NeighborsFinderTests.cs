@@ -3,6 +3,7 @@ using Xunit;
 
 namespace LinnworksTest3Tests
 {
+    [Collection("NeighborsFinder Tests")]
     public class NeighborsFinderTests
     {
         [Fact(DisplayName = "Find neighbors for location in middle of the map")]

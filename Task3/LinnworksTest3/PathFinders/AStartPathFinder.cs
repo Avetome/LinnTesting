@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LinnworksTest3.PathFinders
 {
     /// <summary>
     /// Can be generic, but too lazy )
     /// </summary>
-    public class DijkstraPathFinder : IPathFinder
+    public class AStarPathFinder : IPathFinder
     {
         // oops... abstraction leaking
         private const byte MaxPossibilitiesValue = 100;
@@ -86,7 +87,10 @@ namespace LinnworksTest3.PathFinders
                         }
                         else
                         {
-                            frontier.Insert(neighbor, currentPathCost);
+                            // To compensate cost growing at every cell.
+                            var heuristic = (ushort)(MaxPossibilitiesValue * ManhattanDistanceHeuristic(neighbor, finish));
+
+                            frontier.Insert(neighbor, (ushort)(currentPathCost + heuristic));
                         }
                     }
                 }
@@ -127,6 +131,11 @@ namespace LinnworksTest3.PathFinders
             Console.WriteLine($"Iteration count: {iterationsCount}");
 
             return path.ToArray();
-        }        
+        }
+
+        private static int ManhattanDistanceHeuristic(Location a, Location b)
+        {
+            return Math.Abs(a.X - b.X) + Math.Abs(a.Y - b.Y);
+        }
     }
 }
