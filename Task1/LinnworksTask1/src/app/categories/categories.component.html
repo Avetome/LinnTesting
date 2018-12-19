@@ -1,0 +1,52 @@
+<h2>Product categories</h2>
+<table mat-table [dataSource]="categories" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="CategoryName">
+        <th mat-header-cell *matHeaderCellDef> Category name </th>
+        <td mat-cell *matCellDef="let category">
+            <div *ngIf="category.CategoryId != selectedCategory; else elseBlock">
+                {{category.CategoryName}}
+            </div>
+            <ng-template #elseBlock>
+                <mat-form-field class="example-full-width">
+                    <input #CategoryNameInput
+                           matInput type="text"
+                           [(ngModel)]="category.CategoryName"
+                           (keydown)="editCategoryInputKeyDown(category, $event)"
+                           (focusout)="editCategoryInputFocusOut(category)"
+                           [errorStateMatcher]="matcher"
+                           autofocus />
+                    <mat-hint *ngIf="error.errorMessage != undefined">
+                        {{error.errorMessage}}
+                    </mat-hint>
+                </mat-form-field>
+            </ng-template>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductsCount">
+        <th mat-header-cell *matHeaderCellDef> Products count </th>
+        <td mat-cell *matCellDef="let category"> {{category.ProductsCount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let category">
+            <button mat-button (click)="editCategoryClick(category, $event)">Edit</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;" (click)="selection.toggle(row)"></tr>
+
+</table>

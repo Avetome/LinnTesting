@@ -1,0 +1,14 @@
+<div>
+    <div *ngIf="tokenSuccess == false; else Categories" class="login">
+        <mat-form-field class="example-full-width">
+            <input matInput
+                   #TokenInput
+                   placeholder="Enter the token"
+                   type="text"
+                   [(ngModel)]="token"
+                   autofocus />
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="enterTokenClick()" disabled="{{!token}}">Enter!</button>
+    </div>
+    <ng-template #Categories><app-categories></app-categories></ng-template>
+</div>
