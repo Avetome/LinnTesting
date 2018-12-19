@@ -88,7 +88,7 @@ namespace LinnworksTest3.PathFinders
                         else
                         {
                             // To compensate cost growing at every cell.
-                            var heuristic = (ushort)(MaxPossibilitiesValue * ManhattanDistanceHeuristic(neighbor, finish));
+                            var heuristic = (ushort)(MaxPossibilitiesValue / 2 * ManhattanDistanceHeuristic(neighbor, finish));
 
                             frontier.Insert(neighbor, (ushort)(currentPathCost + heuristic));
                         }

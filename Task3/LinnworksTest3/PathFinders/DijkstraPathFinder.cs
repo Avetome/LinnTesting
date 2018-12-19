@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LinnworksTest3.PathFinders
 {
@@ -98,7 +99,7 @@ namespace LinnworksTest3.PathFinders
 
                 iterationsCount++;
 
-                // ConsoleMapDrawer.DrawDebugCostMap(costMap, start, finish, frontier.Items.Select(item => item.Cell).ToList());
+                ConsoleMapDrawer.DrawDebugCostMap(costMap, start, finish, frontier.Items.Select(item => item.Cell).ToList());
             }
 
             if (cheapestPath == int.MaxValue)

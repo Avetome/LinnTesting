@@ -59,6 +59,7 @@ namespace LinnworksTest3
 
         public Location[] FindShortestWay(Location start, Location finish)
         {
+            // TODO: In real project we could use DI.
             var pathFinder = new DijkstraPathFinder();
             // var pathFinder = new AStarPathFinder();
 

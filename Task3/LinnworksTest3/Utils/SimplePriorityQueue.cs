@@ -5,11 +5,15 @@ using System.Linq;
 namespace LinnworksTest3
 {
     /// <summary>
-    /// Very simple class.
+    /// There is no PriorityQueue in C# yet.
+    /// https://github.com/dotnet/corefx/issues/574
+    /// So this is why this very simple class was written.
     /// Not production ready.
     /// Not implemented collection interfaces.
     /// Not thread-safe, of course.
     /// Should not be used elsewhere except for demonstation ))
+    /// In real life I would use something like:
+    /// https://github.com/BlueRaja/High-Speed-Priority-Queue-for-C-Sharp
     /// </summary>
     public class SimplePriorityQueue
     {
