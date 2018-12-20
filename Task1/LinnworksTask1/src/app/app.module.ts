@@ -11,7 +11,7 @@ import { CategoriesService } from './categories.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatTableModule, MatSortModule, MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatTableModule, MatSortModule, MatSnackBarModule, MatProgressSpinnerModule } from '@angular/material';
 
 import { MatInputModule } from '@angular/material/input';
 import { TesttaskComponent } from './testtask/testtask.component';
@@ -36,7 +36,8 @@ import { ErrorHandlerInterceptor } from './errorhandler.interceptor';
       MatCheckboxModule,
       MatSortModule,
       MatInputModule,
-      MatSnackBarModule
+      MatSnackBarModule,
+      MatProgressSpinnerModule
   ],
     providers: [
         CategoriesService,

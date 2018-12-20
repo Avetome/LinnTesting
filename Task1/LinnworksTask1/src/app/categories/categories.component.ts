@@ -28,6 +28,8 @@ export class CategoriesComponent implements OnInit {
 
     private previosCategoryName: string = "";
 
+    public isLoading: boolean = false;
+
     public dataSource = new MatTableDataSource<Category>(this.categories);
     public selection = new SelectionModel<Category>(false, []);
 
@@ -43,7 +45,14 @@ export class CategoriesComponent implements OnInit {
 
     ngOnInit()
     {
-        this.categoriesService.getCategories().subscribe(categories => this.categories = categories);;
+        this.isLoading = true;
+
+        this.categoriesService
+            .getCategories()
+            .subscribe(categories => {
+                this.categories = categories
+                this.isLoading = false;
+            });
     }
 
     editCategoryClick(category: Category, event: MouseEvent) {
