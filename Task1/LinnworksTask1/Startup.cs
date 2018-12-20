@@ -31,8 +31,8 @@ namespace AngularCoreTest
                     .AllowAnyHeader();
             }));
 
-            // services.AddSingleton<ILinnworksApiClient, LinnworksApiClient>();
-            services.AddSingleton<ILinnworksApiClient, FakeLinnworksApiClient>();
+            services.AddSingleton<ILinnworksApiClient, LinnworksApiClient>();
+            // services.AddSingleton<ILinnworksApiClient, FakeLinnworksApiClient>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
