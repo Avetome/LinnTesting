@@ -19,7 +19,7 @@ namespace AngularCoreTest
 
         public async Task Invoke(HttpContext context)
         {
-            var authHeader = context.Request.Headers.TryGetValue("Authorization", out var apiKeyValuesHeaders);
+            var authHeader = context.Request.Headers.TryGetValue("Authorization", out var authKeyValuesHeaders);
 
             if (authHeader == false)
             {
@@ -27,21 +27,13 @@ namespace AngularCoreTest
                 return;
             }
 
-            var authKeyValues = StringValues.Concat("Authorization", apiKeyValuesHeaders);
-
-            if (authKeyValues.Count != 1)
+            if (string.IsNullOrEmpty(authKeyValuesHeaders[0]))
             {
                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;
                 return;
             }
 
-            if (string.IsNullOrEmpty(authKeyValues[0]))
-            {
-                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                return;
-            }
-
-            var authKey = authKeyValues[0];
+            var authKey = authKeyValuesHeaders[0];
 
             if (!Guid.TryParse(authKey, out var authGuid))
             {
@@ -49,7 +41,7 @@ namespace AngularCoreTest
                 return;
             }
 
-            context.Items["Authorization"] = authKey;
+            context.Items["Authorization"] = authGuid;
 
             await _next(context);
         }

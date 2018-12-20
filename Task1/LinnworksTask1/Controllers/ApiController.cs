@@ -21,7 +21,7 @@ namespace AngularCoreTest.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCategories()
         {
-            var token = Guid.Parse("3a98718b-dc48-46f8-94b2-2412aa624853");
+            var token = (Guid)HttpContext.Items["Authorization"];
 
             var result = await _linnworksApiClient.GetCategories(token);
 
@@ -45,7 +45,9 @@ namespace AngularCoreTest.Controllers
 
             category.Id = id;
 
-            await _linnworksApiClient.UpdateCategory(id, category.Name, Guid.Empty);
+            var token = (Guid)HttpContext.Items["Authorization"];
+
+            await _linnworksApiClient.UpdateCategory(id, category.Name, token);
 
             return new StatusCodeResult(StatusCodes.Status200OK);
         }
